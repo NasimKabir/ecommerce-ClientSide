@@ -1,0 +1,11 @@
+
+  
+  .App-header {
+    background-color: #97f1d5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+  }
