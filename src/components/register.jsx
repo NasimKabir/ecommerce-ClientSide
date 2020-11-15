@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AuthenticationService from '../services/AuthenticationService'
 
 class register extends Component {
     constructor(props) {
