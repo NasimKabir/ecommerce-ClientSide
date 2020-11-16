@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AuthenticationService from '../services/AuthenticationService'
+import UserRegister from '../services/UserRegisterService'
 
 class register extends Component {
     constructor(props) {
@@ -7,14 +7,14 @@ class register extends Component {
         this.state = {
             username: '',
             password: '',
-            hasLoginFailed: false,
-            showSuccessMessage: false
+            email: '',
+            phone: ''
         }
-        this.handleChange=this.handleChange.bind(this)
-        this.login=this.login.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+        this.register = this.register.bind(this)
     }
 
-    handleChange=(event)=> {
+    handleChange = (event) => {
         this.setState(
             {
                 [event.target.name]
@@ -23,20 +23,11 @@ class register extends Component {
         )
     }
 
-    login = ( e)=> {
+    register = (e) => {
         e.preventDefault();
-        let employee = {username: this.state.username, password: this.state.password};
-        console.log( JSON.stringify(employee));
-        AuthenticationService
-        .executeJwtAuthenticationService(this.state.username, this.state.password)
-        .then(() => {
-            AuthenticationService.registerSuccessfulLogin(this.state.username, this.state.password)
-            console.log("Logedin success")
-           // this.props.history.push(`/courses`)
-        }).catch(() => {
-            this.setState({ showSuccessMessage: false })
-            this.setState({ hasLoginFailed: true })
-        })
+        let employee = { username: this.state.username, email: this.state.email, phone: this.state.phone, password: this.state.password };
+        UserRegister.createEmployee(employee).then(
+          ()=>  this.props.history.push('/home'))
     }
 
     render() {
@@ -45,7 +36,7 @@ class register extends Component {
                 <div className="row">
                     <div className="card col-md-6 offset-md-3">
                         <div className="card-body">
-                        <h1>Login From</h1>
+                            <h1>User Register From</h1>
                             <form>
                                 <div className="form-group">
                                     <label> Username: </label>
@@ -53,13 +44,23 @@ class register extends Component {
                                         value={this.state.username} onChange={this.handleChange} />
                                 </div>
                                 <div className="form-group">
+                                    <label> Email: </label>
+                                    <input placeholder="Password" name="email" className="form-control"
+                                        value={this.state.email} onChange={this.handleChange} />
+                                </div>
+                                <div className="form-group">
+                                    <label> Phone: </label>
+                                    <input placeholder="User Name" name="phone" className="form-control"
+                                        value={this.state.phone} onChange={this.handleChange} />
+                                </div>
+                                <div className="form-group">
                                     <label> Password: </label>
                                     <input placeholder="Password" name="password" className="form-control"
                                         value={this.state.password} onChange={this.handleChange} />
                                 </div>
-            
 
-                                <button className="btn btn-success" onClick={this.login}>Save</button>
+
+                                <button className="btn btn-success" onClick={this.register}>Save</button>
 
                             </form>
                         </div>

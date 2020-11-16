@@ -7,7 +7,7 @@ import Home from './Home'
 import Register from './Register'
 
 
-class ecommerce extends Component {
+class Ecommerce extends Component {
     render() {
         return (
             <div>
@@ -31,4 +31,4 @@ class ecommerce extends Component {
     }
 }
 
-export default ecommerce;
+export default Ecommerce;

@@ -1,7 +1,7 @@
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import "./fortawesome/index";
-import Ecommerce from './components/ecommerce';
+import "./fontawsome/index";
+import Ecommerce from './components/Ecommerce';
 
 function App() {
   return (

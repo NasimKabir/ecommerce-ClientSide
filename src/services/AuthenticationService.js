@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'http://localhost:8080/api/auth'
+const API_URL = 'http://localhost:8080/api/v1'
 
 export const USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser'
 
@@ -8,7 +8,7 @@ class AuthenticationService {
 
     executeJwtAuthenticationService(username, password) {
         console.log(username);
-        return axios.post(`${API_URL}/signin`, {
+        return axios.post(`${API_URL}/login`, {
             username,
             password
         })
