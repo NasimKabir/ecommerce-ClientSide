@@ -1,13 +1,12 @@
+import logo from './logo.svg';
 import './App.css';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import "./fontawsome/index";
-import Ecommerce from './components/Ecommerce';
+import HeaderComponent from './components/HeaderComponent';
 
 function App() {
   return (
-    <div className="App ">
+    <div className="App">
       <header className="App-header">
-        < Ecommerce />
+        <HeaderComponent />
       </header>
     </div>
   );
