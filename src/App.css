@@ -1,0 +1,14 @@
+.header{
+  width: 25px;
+  height: 25px;
+  background-color: black;
+}
+
+.single-product{
+  align-items: center;
+}
+
+.pagination {
+  margin-top: 30px;
+  justify-content: center;
+}
