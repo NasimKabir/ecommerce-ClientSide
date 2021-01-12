@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactPaginate from 'react-paginate';
 import ProductService from '../service/ProductService';
-import SingleProduct from './SingleProduct';
+import { Link } from 'react-router-dom';
 import '../App.css';
 class ProductList extends Component {
     constructor(props) {
@@ -69,7 +69,17 @@ class ProductList extends Component {
                                     this.state.products !== null &&
                                     this.state.products.map((item, i) => (
                                         <div className="col-md-4 mt-4" key={i}>
-                                            <SingleProduct item={item} />
+                                            <div className="single-product card ml-4">
+                                                <Link to={`/product/${item.id}`}><img className="card-img-top border border-primary rounded image mt-2" src={item.imagePath} alt="product" style={{ width: '250px', height: '150px' }} /></Link>
+
+                                                <div className="card-body">
+                                                    <h5 className="card-title">{(item.description).substring(0, 50)}.........<Link to={`/product/${item.id}`}>more</Link></h5>
+                                                    <Link to="#" className="btn btn-primary">Add to Card</Link>
+                                                </div>
+                                                <div className="div card-footer">
+                                                    <h5>Price :{item.price}</h5>
+                                                </div>
+                                            </div>
                                         </div>
                                     ))
                                 }

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import '../App.css';
+import {Link } from 'react-router-dom';
 class HeaderComponent extends Component {
   render() {
     return (
       <header>
         <nav className="navbar navbar-expand-md navbar-dark bg-dark ">
           <ul className="navbar-nav">
-            <li className="nav-item nav-link"><a href="shop.html">Home</a></li>
+            <li className="nav-item nav-link"><Link to="/">Home</Link></li>
             <ul className="nav navbar-nav collapse navbar-collapse">
             <li className=" text-primary " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Product
@@ -27,7 +28,7 @@ class HeaderComponent extends Component {
             <li className="nav-item nav-link"><a href="login.html">Logout</a></li>
           </ul>
         </nav>
-      </header>
+      </header> 
     );
 
   }
